@@ -21,8 +21,16 @@ Place all written answers from `assignment-01.md` here for easier grading.
 
   - 1f (2 pts): Referring to the previous answer, the limit of the ratio of the functions is infinity. Since it is infinity, n^1/2 is omega to (log n)^3, n^1/2 grows strictly faster than (log n)^3.
 
-  - 1g: We will prove by contradiction. Thus assume that the intersection of the sets is not empty. That means there exists some function $f(n)$ s.t $f(n) \in o(g(n))$ and $f(n) \in w(g(n))$. Since for both the definition of little-o and little w, they must work for all constants c. Since the conditions...
-
+  - 1g: First let us define little-o and little w.
+  Little-o: $f(n) \in o(g(n))$ if for every positive constant $c_1>0$, there exists a constant $n_1>0$ st: $f(n) < c_1 * g(n)$ for all $n \geq n_1$
+  Little-w: $f(n) \in o(g(n))$ if for every positive constant $c_2>0$, there exists a constant $n_2>0$ st: $f(n) > c_2 * g(n)$ for all $n \geq n_2$
+  We will prove by contradiction. Thus assume that the intersection of the sets is not empty. That means there exists some function $f(n)$ s.t $f(n) \in o(g(n))$ and $f(n) \in w(g(n))$. Based off of the definitions of little-o and little w, they must work for all constants c. Thus, lets use a specific constants to test the assumption.
+  1. Let $c_1 = 1$. Since $f(n) \in o(g(n))$, there exists $n_1 > 0$ st: $f(n) < 1 * g(n)$ for all $n \geq n_1$
+  2. Let $c_2 = 1$. Since $f(n) \in w(g(n))$, there exists $n_2 > 0$ st: $f(n) > 1 * g(n)$ for all $n \geq n_1$
+  Now define $n_0 = max (n_1,n_2)$
+  For any $n \geq n_0$, both inequalities must simultaneously hold: $f(n) < g(n) and f(n) > g(n)$
+  Combining this we get: $g(n) < f(n) < g(n)$, meaning $g(n) < g(n)$
+  This is a direct contradiction (g(n) cannot be strictly less than itself)
 2. **SPARC to Python**
 
   - 2b (3 pts):
@@ -32,8 +40,13 @@ Place all written answers from `assignment-01.md` here for easier grading.
 3. **Parallelism and recursion**
 
   - 3b (4 pts):
-  
+  Work = O(n)
+  Span = O(n)
 
   - 3d (4 pts):
+  Work = O(n)
+  Span = O(n)
 
   - 3e (5 pts):
+  Work = O(n)
+  Span = O(log n)
